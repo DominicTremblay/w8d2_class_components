@@ -66,13 +66,21 @@ class App extends Component {
   };
 
   addNewPet = (petObj) => {
-    petObj.id = this.state.pets.length + 1;
-    petObj.energy = 100;
-    petObj.mood = 'Happy';
-    this.setState({
-      pets: [...this.state.pets, petObj],
-      displayPetForm: false,
-    });
+    axios({
+      method: 'POST',
+      url: '/api/pets',
+      data: petObj,
+    })
+      .then((response) => {
+
+        this.setState({
+          pets: [...this.state.pets, response.data.pet],
+          displayPetForm: false,
+        });
+      })
+      .catch((err) => {
+        console.log(`Error: ${err.message}`);
+      });
   };
 
   openPetForm = () => this.setState({ displayPetForm: true });
