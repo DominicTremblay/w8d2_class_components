@@ -1,12 +1,14 @@
 import { Component } from 'react';
 import PetList from './components/PetList';
 import './App.css';
+import AddNewPet from './components/AddNewPet';
 
 class App extends Component {
   // optional
   constructor(props) {
     super(props);
     this.state = {
+      displayPetForm: false,
       pets: [
         {
           id: 1,
@@ -107,7 +109,7 @@ class App extends Component {
   feedPet = (id) => {
     const updatedPetList = this.state.pets.map((petObj) => {
       if (petObj.id === id) {
-        const energy = Math.min(petObj.energy + 10, 100)
+        const energy = Math.min(petObj.energy + 10, 100);
 
         return {
           ...petObj,
@@ -118,10 +120,9 @@ class App extends Component {
       return petObj;
     });
 
-    this.setState((prevState) => ({
-      ...prevState,
+    this.setState({
       pets: updatedPetList,
-    }));
+    });
   };
 
   playWithPet = (id) => {
@@ -138,19 +139,34 @@ class App extends Component {
       return petObj;
     });
 
-    this.setState((prevState) => ({
-      ...prevState,
+    this.setState({
       pets: updatedPetList,
-    }));
+    });
   };
+
+  addNewPet = (petObj) => {
+    petObj.id = this.state.pets.length + 1;
+    petObj.energy = 100;
+    petObj.mood = 'Happy';
+    this.setState({
+      pets: [...this.state.pets, petObj],
+      displayPetForm: false,
+    });
+  };
+
+  openPetForm = () => this.setState({ displayPetForm: true });
 
   render() {
     return (
-      <PetList
-        pets={this.state.pets}
-        feedPet={this.feedPet}
-        playWithPet={this.playWithPet}
-      />
+      <>
+        <PetList
+          pets={this.state.pets}
+          feedPet={this.feedPet}
+          playWithPet={this.playWithPet}
+          openPetForm={this.openPetForm}
+        />
+        {this.state.displayPetForm && <AddNewPet addNewPet={this.addNewPet} />}
+      </>
     );
   }
 }

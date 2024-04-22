@@ -1,0 +1,79 @@
+.add-pet-dialog {
+  background-color: white;
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  height: 45%;
+  width: 45%;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.add-pet-dialog header {
+  font-weight: bolder;
+  font-size: 1.3rem;
+  color: #4caf50;
+}
+
+.add-pet-dialog__close-button {
+  background-color: white;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 16px;
+  margin-top: 16px;
+}
+
+.add-pet-frm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  padding: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.form-group label {
+  flex: 1;
+  margin-right: 1rem;
+  text-align: right;
+}
+
+.form-group input[type='text'] {
+  flex: 2;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: end;
+  width: 50%;
+
+}
+
+input[type='submit'] {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 1rem;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
