@@ -1,5 +1,5 @@
-export const pets = [
-  {
+export const pets = {
+  1: {
     id: 1,
     type: 'Dog',
     name: 'Max',
@@ -8,7 +8,7 @@ export const pets = [
     mood: 'Happy',
     energy: 100,
   },
-  {
+  2: {
     id: 2,
     type: 'Cat',
     name: 'Bella',
@@ -17,7 +17,7 @@ export const pets = [
     mood: 'Excited',
     energy: 95,
   },
-  {
+  3: {
     id: 3,
     type: 'Bird',
     name: 'Charlie',
@@ -26,7 +26,7 @@ export const pets = [
     mood: 'Relaxed',
     energy: 85,
   },
-  {
+  4: {
     id: 4,
     type: 'Fish',
     name: 'Nemo',
@@ -35,7 +35,7 @@ export const pets = [
     mood: 'Playful',
     energy: 90,
   },
-  {
+  5: {
     id: 5,
     type: 'Dog',
     name: 'Buddy',
@@ -44,7 +44,7 @@ export const pets = [
     mood: 'Hungry',
     energy: 80,
   },
-  {
+  6: {
     id: 6,
     type: 'Cat',
     name: 'Daisy',
@@ -53,7 +53,7 @@ export const pets = [
     mood: 'Calm',
     energy: 75,
   },
-  {
+  7: {
     id: 7,
     type: 'Bird',
     name: 'Rocky',
@@ -62,7 +62,7 @@ export const pets = [
     mood: 'Sleepy',
     energy: 70,
   },
-  {
+  8: {
     id: 8,
     type: 'Fish',
     name: 'Goldie',
@@ -71,7 +71,7 @@ export const pets = [
     mood: 'Energetic',
     energy: 85,
   },
-  {
+  9: {
     id: 9,
     type: 'Dog',
     name: 'Bailey',
@@ -80,7 +80,7 @@ export const pets = [
     mood: 'Anxious',
     energy: 90,
   },
-  {
+  10: {
     id: 10,
     type: 'Cat',
     name: 'Sadie',
@@ -89,4 +89,4 @@ export const pets = [
     mood: 'Nervous',
     energy: 95,
   },
-];
+};

@@ -28,41 +28,50 @@ class App extends Component {
   }
 
   feedPet = (id) => {
-    const updatedPetList = this.state.pets.map((petObj) => {
-      if (petObj.id === id) {
-        const energy = Math.min(petObj.energy + 10, 100);
+    axios({
+      method: 'PUT',
+      url: `/api/pets/${id}`,
+      data: { action: 'feed' },
+    })
+      .then((response) => {
+        const newPet = response.data;
+        const updatedPetlist = this.state.pets.map((petObj) => {
+          if (petObj.id === newPet.id) {
+            return newPet;
+          }
 
-        return {
-          ...petObj,
-          mood: energy === 100 ? 'Full' : 'Happy',
-          energy,
-        };
-      }
-      return petObj;
-    });
+          return petObj;
+        });
 
-    this.setState({
-      pets: updatedPetList,
-    });
+        this.setState({ pets: updatedPetlist });
+      })
+      .catch((err) => {
+        console.log(`Error: ${err.message}`);
+      });
   };
 
   playWithPet = (id) => {
-    const updatedPetList = this.state.pets.map((petObj) => {
-      if (petObj.id === id) {
-        const energy = Math.max(petObj.energy - 10, 0);
-        return {
-          ...petObj,
-          energy,
-          mood: energy <= 0 ? 'Hungry' : 'Happy',
-        };
-      }
+    axios({
+      method: 'PUT',
+      url: `/api/pets/${id}`,
+      data: { action: 'play' },
+    })
+      .then((response) => {
+        const newPet = response.data;
 
-      return petObj;
-    });
+        const updatedPetlist = this.state.pets.map((petObj) => {
+          if (petObj.id === newPet.id) {
+            return newPet;
+          }
 
-    this.setState({
-      pets: updatedPetList,
-    });
+          return petObj;
+        });
+
+        this.setState({ pets: updatedPetlist });
+      })
+      .catch((err) => {
+        console.log(`Error: ${err.message}`);
+      });
   };
 
   addNewPet = (petObj) => {
@@ -72,7 +81,6 @@ class App extends Component {
       data: petObj,
     })
       .then((response) => {
-
         this.setState({
           pets: [...this.state.pets, response.data.pet],
           displayPetForm: false,
