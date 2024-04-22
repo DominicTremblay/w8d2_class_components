@@ -11,7 +11,8 @@ app.get('/api/pets', (req, res) => res.json(Object.values(pets)));
 app.post('/api/pets', (req, res) => {
   const petObj = req.body;
 
-  petObj.id = pets.length + 1;
+  petObj.id = Object.values(pets).length + 1;
+
   petObj.energy = 100;
   petObj.mood = 'Happy';
 
